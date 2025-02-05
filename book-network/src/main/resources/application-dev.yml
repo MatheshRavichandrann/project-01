@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/e-book
+    username: postgres
+    password: papps
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: adithya7887@gmail.com
+    password: pqmfwohnluglhysr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: "*"
+        starttls:
+          enable: true
+    #      connectiontimeout: 5000
+    #      timeout: 3000
+    #      writetimeout: 5000
+    protocol: smtp
+
+application:
+  security:
+    jwt:
+      secret-key: 3D77C395F14D4230A75FE34BA2BC6A66E6984516C039D21CBDA6JEEVASOROHINIM6BC6D22CDAB44
+      expiration: 86400000
+      refresh-token:
+        604800000
+  mailing:
+    frontend:
+      activation_url: http://localhost:4200/activate-account
+  file:
+    upload:
+      photos-output-path: ./uploads
+
+server:
+  port: 8088

@@ -1,0 +1,43 @@
+<div class="card book-card">
+    <img [src]="bookCover" class="card-img" alt="Book Cover">
+    <div class="card-body">
+        <h5 class="card-title d-flex justify-content-between align-items-center">
+            <span>
+              <i class="fas fa-book-open"></i> {{ book.title }}
+            </span>
+            <span>
+              <span *ngIf="book.sharable && !book.archived" class="badge bg-success text-white">Sharable</span>
+              <span *ngIf="book.archived" class="badge bg-danger text-white">Archived</span>
+            </span>
+          </h5>          
+        <p>
+            <i class="fas fa-user"></i> {{ book.authorName }}
+        </p>
+        <p>
+            <i class="fas fa-barcode"></i> {{ book.isbn }}
+        </p>
+        <p>
+            <i class="fas fa-user-circle"></i> {{ book.owner }}
+        </p>
+        <hr>
+        <p class="card-text">{{ book.synopsis }}</p>
+    </div>
+    <div class="card-footer d-flex gap-2 justify-content-between align-items-center">
+        <div class="d-flex gap-2">
+            <app-rating [rating]="book.rate || 0"></app-rating>
+            <span class="fw-bold" *ngIf="book.rate || 0 > 0">
+                {{ book.rate }}
+            </span>
+        </div>
+        <div class="d-flex gap-2" *ngIf="!manage">
+            <i (click)="onShowDetails()" class="fas fa-circle-info text-primary"></i>
+            <i (click)="onBorrow()" class="fas fa-list-check text-primary"></i>
+            <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger"></i>
+        </div>
+        <div class="d-flex gap-2" *ngIf="manage">
+            <i (click)="onEdit()" class="fas fa-edit text-success"></i>
+            <i (click)="onShare()" class="fas fa-share-nodes text-primary"></i>
+            <i (click)="onArchive()" class="fas fa-archive text-danger"></i>
+        </div>
+    </div>
+</div>
