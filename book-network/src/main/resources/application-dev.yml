@@ -38,10 +38,12 @@ application:
       refresh-token: 604800000
   mailing:
     frontend:
-      activation_url: http://localhost:4200/activate-account
+      activation_url: https://glistening-cheesecake-5259a9.netlify.app/activate-account
   file:
     upload:
       photos-output-path: ./uploads
 
 server:
   port: 8088
+
+  #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory

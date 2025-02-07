@@ -56,7 +56,7 @@ public class BeansConfig {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:4200", "http://localhost:8080"));
+        config.setAllowedOrigins(List.of("http://localhost:4200", "http://localhost:8080", "https://glistening-cheesecake-5259a9.netlify.app", "https://project-01-gm0t.onrender.com"));
         config.setAllowedHeaders(Arrays.asList(
                 ORIGIN,
                 CONTENT_TYPE,
