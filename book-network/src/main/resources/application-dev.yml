@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/e-book
-    username: postgres
-    password: papps
+    url: jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com/ebook_86j1 #jdbc:postgresql://localhost:5432/e-book
+    username: zoro #postgres
+    password: R49F0vgaUz9X9VSuoYBlPW3BYyTtRLGv #papps
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -42,7 +42,7 @@ application:
         604800000
   mailing:
     frontend:
-      activation_url: http://localhost:4200/activate-account
+      activation_url: http://localhost:4200/activate-account #here
   file:
     upload:
       photos-output-path: ./uploads
