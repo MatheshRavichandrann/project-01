@@ -1,0 +1,118 @@
+/* Footer Section Styles */
+.footer-section {
+  background-color: #f9f9f9;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 2rem;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list li {
+  margin: 0.5rem 0;
+}
+
+.footer-list li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.footer-list li a:hover {
+  color: #007bff;
+}
+
+.feature-section {
+  background-color: #e9ecef;
+  padding: 2rem 0;
+}
+
+.feature-box {
+  text-align: center;
+}
+
+.feature-box i {
+  color: #007bff;
+}
+
+.feature-title {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.d-flex.gap-2 {
+  gap: 0.5rem !important;
+}
+
+input[type="email"] {
+  max-width: 220px;
+}
+
+.footer-socials a {
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #007bff;
+}
+
+.border-top {
+  border-top: 1px solid #ddd !important;
+}
+
+.footer-section .nav-link {
+  color: #333;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-section .nav-link:hover {
+  color: #007bff;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .feature-box {
+    margin-bottom: 1rem;
+  }
+}
+
+
+.books-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.books-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background-color: #2980b9;
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+

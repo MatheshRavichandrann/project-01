@@ -1,84 +1,141 @@
-<h3>Books List</h3>
-<div
-    *ngIf="message"
-    class="alert"
-    [class.alert-danger]="level === 'error'"
-    [class.alert-success]="level === 'success'" 
->
-{{ message }}
+<h3 class="text-center books-title"> Books List</h3>
+
+
+<div *ngIf="message" class="alert text-center"
+     [class.alert-danger]="level === 'error'"
+     [class.alert-success]="level === 'success'">
+    {{ message }}
 </div>
+
 <hr>
-<div class="d-flex justify-content-start gap-2 flex-wrap">
-    <app-book-card 
-    *ngFor="let book of bookResponse.content"
-    [book]="book" 
-    (borrow)="borrowBook($event)"
-    ></app-book-card>
+<div class="d-flex justify-content-center gap-3 flex-wrap book-container">
+    <app-book-card
+        *ngFor="let book of bookResponse.content"
+        [book]="book"
+        (borrow)="borrowBook($event)">
+    </app-book-card>
 </div>
 
 <div class="d-flex justify-content-center mt-3">
     <nav aria-label="Page Navigation example">
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a
-                (click)="goToFirstPage()"
-                class="page-link"
-                href="javascript:void(0)"
-                aria-label="Previous"
-                [class.disabled]="page == 0"
-                > 
-                <i class="fa-solid fa-angles-left"></i>
-                </a>
-            </li> 
-            <li class="page-item">
-                <a
-                (click)="goToPreviousPage()"
-                class="page-link"
-                href="javascript:void(0)"
-                aria-label="Previous"
-                [class.disabled]="page == 0"
-                > 
-                <i class="fa-solid fa-angle-left"></i>
+                <a (click)="goToFirstPage()" class="page-link" href="javascript:void(0)"
+                   aria-label="First" [class.disabled]="page == 0">
+                    <i class="fa-solid fa-angles-left"></i>
                 </a>
             </li>
-            <li 
-            class="page-item"
-            *ngFor="let _ of [].constructor(this.bookResponse.totalPage); let pageIndex = index"
-            >
-                <a
-                (click)="goToPage(pageIndex)"
-                class="page-link"
-                href="javascript:void(0)"
-                aria-label="Previous"
-                [class.active]="page == pageIndex"
-                > 
-                {{pageIndex + 1}}
+            <li class="page-item">
+                <a (click)="goToPreviousPage()" class="page-link" href="javascript:void(0)"
+                   aria-label="Previous" [class.disabled]="page == 0">
+                    <i class="fa-solid fa-angle-left"></i>
                 </a>
-
             </li>
-
-            <li class="page-item">
-                <a
-                (click)="goToNextPage()"
-                class="page-link"
-                href="javascript:void(0)"
-                aria-label="Next"
-                [class.disabled]="isLastPage"
-                > 
-                <i class="fa-solid fa-chevron-right"></i>
+            <li class="page-item" *ngFor="let _ of [].constructor(this.bookResponse.totalPage); let pageIndex = index">
+                <a (click)="goToPage(pageIndex)" class="page-link" href="javascript:void(0)"
+                   [class.active]="page == pageIndex">
+                    {{ pageIndex + 1 }}
                 </a>
-            </li> 
+            </li>
             <li class="page-item">
-                <a
-                (click)="goToLastPage()"
-                class="page-link"
-                href="javascript:void(0)"
-                aria-label="Last"
-                [class.disabled]="isLastPage"
-                > 
-                <i class="fa-solid fa-angles-right"></i>
+                <a (click)="goToNextPage()" class="page-link" href="javascript:void(0)"
+                   aria-label="Next" [class.disabled]="isLastPage">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a (click)="goToLastPage()" class="page-link" href="javascript:void(0)"
+                   aria-label="Last" [class.disabled]="isLastPage">
+                    <i class="fa-solid fa-angles-right"></i>
                 </a>
             </li>
         </ul>
     </nav>
 </div>
+
+
+<footer class="footer-section">
+  <div class="container-fluid">
+    <!-- Top Content -->
+    <div class="row justify-content-between align-items-start py-5">
+      <!-- About Section -->
+      <div class="col-md-3 footer-col">
+        <h5 class="footer-title">About E-Book</h5>
+        <p>
+          E-Book is your ultimate platform for managing, borrowing, and sharing digital books. Empower your reading journey with seamless experiences.
+        </p>
+        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="col-md-2 footer-col">
+        <h5 class="footer-title">Quick Links</h5>
+        <ul class="footer-list">
+          <li><a routerLink="/books"><i class="fas fa-home"></i>&nbsp; Home</a></li>
+          <li><a routerLink="/books/my-books"><i class="fas fa-book"></i>&nbsp; My Books</a></li>
+          <li><a routerLink="/books/manage"><i class="fas fa-plus"></i>&nbsp; Add New Book</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Section -->
+      <div class="col-md-2 footer-col">
+        <h5 class="footer-title">Support</h5>
+        <ul class="footer-list">
+          <li><a href="#"><i class="fas fa-envelope"></i>&nbsp; Contact Us</a></li>
+          <li><a href="#"><i class="fas fa-user-shield"></i>&nbsp; Privacy Policy</a></li>
+          <li><a href="#"><i class="fas fa-file-contract"></i>&nbsp; Terms of Service</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i>&nbsp; Help Center</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Connected -->
+      <div class="col-md-3 footer-col">
+        <h5 class="footer-title">Stay Connected</h5>
+        <form class="d-flex gap-2 align-items-center">
+          <input type="email" class="form-control" placeholder="Enter your email" />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p class="mt-2">Get the latest book updates and news directly to your inbox.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-primary"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#" class="text-primary"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="#" class="text-primary"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <!-- <div class="row py-4 bg-light feature-section">
+      <div class="col-md-3 feature-box">
+        <i class="fas fa-shield-alt fa-2x text-primary mb-2"></i>
+        <h6 class="feature-title">Secure Platform</h6>
+        <p>We prioritize your data privacy and ensure a safe platform experience.</p>
+      </div>
+      <div class="col-md-3 feature-box">
+        <i class="fas fa-book-reader fa-2x text-primary mb-2"></i>
+        <h6 class="feature-title">Extensive Library</h6>
+        <p>Access a wide variety of books and genres curated just for you.</p>
+      </div>
+      <div class="col-md-3 feature-box">
+        <i class="fas fa-user-friends fa-2x text-primary mb-2"></i>
+        <h6 class="feature-title">Community Support</h6>
+        <p>Join a vibrant book-sharing community to connect and share insights.</p>
+      </div>
+      <div class="col-md-3 feature-box">
+        <i class="fas fa-sync-alt fa-2x text-primary mb-2"></i>
+        <h6 class="feature-title">Real-Time Sync</h6>
+        <p>Enjoy real-time book updates and seamless synchronization.</p>
+      </div>
+    </div> -->
+
+    <!-- Copyright and Navigation -->
+    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-4">
+      <span>© 2025 E-Book | Developed by <span class="text-primary fw-bold">Mathesh Ravichandran</span></span>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#">Terms of Use</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -6,14 +6,14 @@ import { BookResponse, PageResponseBookResponse } from '../../../../services/mod
 @Component({
   selector: 'app-book-list',
   standalone: false,
-  
+
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss'
 })
 export class BookListComponent implements OnInit{
   bookResponse: PageResponseBookResponse = {};
   page = 0;
-  size = 5;
+  size = 15;
   message = '';
   level = 'success';
   constructor(
@@ -33,7 +33,7 @@ export class BookListComponent implements OnInit{
       size: this.size
     }).subscribe({
       next: (books) => {
-        this.bookResponse = books; 
+        this.bookResponse = books;
       }
     });
   }

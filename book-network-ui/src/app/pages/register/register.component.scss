@@ -1,0 +1,136 @@
+/* Background and Body Styling */
+body {
+  background: linear-gradient(135deg, #e0f7fa, #f0f4f7);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Main Wrapper */
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card Container */
+.login-container {
+  background: white;
+  max-width: 430px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.7s ease;
+  margin-top: 5vh;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Form Styling */
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+input {
+  font-size: 16px;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #4fc3f7;
+  outline: none;
+  box-shadow: 0 0 5px rgba(79, 195, 247, 0.3);
+}
+
+/* Buttons */
+button {
+  background: #1a0ff0;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  transform: scale(1.02);
+  background: #1a0ff0;
+}
+
+.btn-link {
+  color: #1a0ff0;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-flex {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .login-container {
+    padding: 1.5rem;
+    margin-top: 8vh;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+.link-text {
+  margin: 0;
+  font-size: 0.9rem;
+  display: inline-block;
+  color: #6c63ff;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link-text:hover {
+  text-decoration: underline;
+  color: #5750e8;
+}

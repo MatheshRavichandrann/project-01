@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
       }
       link.addEventListener('click', () => {
         linkColour.forEach(l => l.classList.remove('active'));
-
         link.classList.add('active');
       });
     });

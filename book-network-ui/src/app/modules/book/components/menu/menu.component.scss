@@ -1,19 +1,136 @@
-li > a {
-    display: inline-block;
-    padding: 5px 10px;
-    color: #333;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.2s, border-bottom 0.2s;
-    border-bottom: 2px solid transparent; 
+// li > a {
+//     display: inline-block;
+//     padding: 5px 10px;
+//     color: #333;
+//     font-weight: 500;
+//     text-decoration: none;
+//     transition: color 0.2s, border-bottom 0.2s;
+//     border-bottom: 2px solid transparent;
+// }
+
+// li > a:hover {
+//     color: #0056b3;
+//     border-bottom: 2px solid #0056b3;
+// }
+
+// li > a.active {
+//     color: #27a7e9;
+//     border-bottom: 2px solid #27a7e9;
+// }
+
+
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ddd;
 }
 
-li > a:hover {
-    color: #0056b3;
-    border-bottom: 2px solid #0056b3; 
+.navbar-brand {
+  color: #00274d;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
-li > a.active {
-    color: #27a7e9; 
-    border-bottom: 2px solid #27a7e9; 
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
 }
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.nav-item a {
+  color: #00274d;
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.nav-item a:hover {
+  background-color: #d0e7ff;
+  color: #00274d;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  padding: 0.7rem 1rem;
+  border-radius: 2rem;
+  max-width: 260px;
+  background-color: #ffffff;
+}
+
+.btn-outline-success {
+  background-color: #00274d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+.btn-outline-success:hover {
+  background-color: #004b87;
+}
+
+.welcome-text {
+  color: #333;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.fw-bold {
+  font-weight: 700;
+  color: #00274d;
+}
+
+.btn-link {
+  color: #00274d;
+}
+
+.btn-link:hover {
+  color: #004b87;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .form-control {
+    max-width: 100%;
+  }
+
+  .navbar-collapse {
+    background-color: white;
+    padding: 1rem;
+  }
+
+  .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+.navbar {
+  background-color: white;
+  border-bottom: 2px solid #007bff;
+}
+
+.nav-link {
+  color: #007bff;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.welcome-text {
+  font-weight: 500;
+  color: #007bff;
+}
+
+button {
+  color: #007bff;
+}
+
