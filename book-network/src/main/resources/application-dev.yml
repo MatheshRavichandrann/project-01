@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://zoro:tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1@dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    url: jdbc:postgresql://tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1@dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com:5432/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
 
   #jdbc:postgresql://localhost:5432/e-book #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     username: zoro
@@ -42,7 +42,7 @@ application:
       refresh-token: 604800000
   mailing:
     frontend:
-      activation_url: http://localhost:4200/activate-account
+      activation_url: https://tourmaline-axolotl-c1133c.netlify.app/activate-account #http://localhost:4200/activate-account
   file:
     upload:
       photos-output-path: ./uploads

@@ -56,7 +56,7 @@ public class BeansConfig {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:4200", "http://localhost:8080", "http://localhost:8088", "https://glistening-cheesecake-5259a9.netlify.app", "https://golden-gumdrop-78e8cd.netlify.app/", "https://capable-stardust-fc5161.netlify.app", "https://tourmaline-axolotl-c1133c.netlify.app","https://calm-cactus-1ee1f0.netlify.app",   "https://project-01-gm0t.onrender.com"));
+        config.setAllowedOrigins(List.of("http://localhost:4200", "http://localhost:8080", "http://localhost:8088", "https://glistening-cheesecake-5259a9.netlify.app", "https://golden-gumdrop-78e8cd.netlify.app/", "https://capable-stardust-fc5161.netlify.app", "https://tourmaline-axolotl-c1133c.netlify.app" ,"https://tourmaline-axolotl-c1133c.netlify.app","https://calm-cactus-1ee1f0.netlify.app",   "https://project-01-gm0t.onrender.com"));
         config.setAllowedHeaders(Arrays.asList(
                 ORIGIN,
                 CONTENT_TYPE,
