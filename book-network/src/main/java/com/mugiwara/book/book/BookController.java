@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("books")
 @RequiredArgsConstructor
@@ -123,5 +125,13 @@ public class BookController {
     ) {
         service.uploadBookCoverPicture(file, connectedUser, bookId);
         return ResponseEntity.accepted().build();
+    }
+
+
+    @GetMapping("/suggestions")
+    public ResponseEntity<?> getSuggestions(@RequestParam String keyword) {
+        System.out.println("Keyword: " + keyword);
+        List<String> suggestions = service.getListOfSuggestions(keyword);
+        return ResponseEntity.ok(suggestions);
     }
 }

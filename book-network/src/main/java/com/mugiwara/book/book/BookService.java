@@ -208,4 +208,10 @@ public class BookService {
         book.setBookCover(bookCover);
         bookRepository.save(book);
     }
+
+    public List<String> getListOfSuggestions(String keyword) {
+        List<String> result = bookRepository.findByName(keyword);
+        System.out.println("Suggestions: " + result);
+        return !result.isEmpty() ? result : List.of("No suggestions found");
+    }
 }
