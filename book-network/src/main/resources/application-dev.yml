@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1@dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com:5432/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    url: jdbc:postgresql://dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com:5432/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
 
-  #jdbc:postgresql://localhost:5432/e-book #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    #jdbc:postgresql://localhost:5432/e-book
     username: zoro
     #postgres #zoro
     password: tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1
