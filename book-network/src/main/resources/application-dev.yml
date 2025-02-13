@@ -1,12 +1,16 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    url: jdbc:postgresql://zoro:tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1@dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+
+  #jdbc:postgresql://localhost:5432/e-book #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     username: zoro
-    password: R49F0vgaUz9X9VSuoYBlPW3BYyTtRLGv
+    #postgres #zoro
+    password: tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1
+    #papps #R49F0vgaUz9X9VSuoYBlPW3BYyTtRLGv
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
@@ -38,7 +42,7 @@ application:
       refresh-token: 604800000
   mailing:
     frontend:
-      activation_url: https://glistening-cheesecake-5259a9.netlify.app/activate-account
+      activation_url: http://localhost:4200/activate-account
   file:
     upload:
       photos-output-path: ./uploads
