@@ -1,12 +1,14 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com:5432/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    url: jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_Al6JW7hjNRHB&sslmode=require
+    #jdbc:postgresql://dpg-cumv1ntsvqrc73flp8k0-a.oregon-postgres.render.com:5432/ebook_yo5x?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
 
-    #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+         #jdbc:postgresql://dpg-cu1q9hrtq21c73bk9r7g-a.oregon-postgres.render.com:5432/ebook_86j1?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     #jdbc:postgresql://localhost:5432/e-book
-    username: zoro
+    username: neondb_owner
     #postgres #zoro
-    password: tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1
+    password: npg_Al6JW7hjNRHB
+    #tjxxjtUhlyNcm96YYtKGwVJlOPiSOGn1
     #papps #R49F0vgaUz9X9VSuoYBlPW3BYyTtRLGv
     driver-class-name: org.postgresql.Driver
   jpa:
