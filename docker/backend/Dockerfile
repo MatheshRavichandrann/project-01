@@ -28,7 +28,8 @@ COPY --from=build /build/target/book-network-${APP_VERSION}.jar /app/book-networ
 EXPOSE 8088
 
 # Set environment variables
-ENV DB_URL=jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_Al6JW7hjNRHB&sslmode=require
+ENV DB_URL=jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb
+#jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_Al6JW7hjNRHB&sslmode=require
 ENV DB_USERNAME=neondb_owner
 ENV DB_PASSWORD=npg_Al6JW7hjNRHB
 ENV ACTIVE_PROFILE=dev
