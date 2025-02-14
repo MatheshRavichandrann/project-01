@@ -28,11 +28,15 @@ COPY --from=build /build/target/book-network-${APP_VERSION}.jar /app/book-networ
 EXPOSE 8088
 
 # Set environment variables
-ENV DB_URL=jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require
-#jdbc:postgresql://ep-black-hill-a5f93i03-pooler.us-east-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_Al6JW7hjNRHB&sslmode=require
-ENV DB_USERNAME=neondb_owner
-ENV DB_PASSWORD=npg_Al6JW7hjNRHB
-ENV ACTIVE_PROFILE=dev
+ENV SPRING_DATASOURCE_URL="jdbc:postgresql://ep-black-hill-a5f93i03.us-east-2.aws.neon.tech/neondb"
+ENV SPRING_DATASOURCE_USERNAME="neondb_owner"
+ENV SPRING_DATASOURCE_PASSWORD="npg_Al6JW7hjNRHB"
+ENV SPRING_DATASOURCE_SSLMODE="require"
+ENV SPRING_PROFILES_ACTIVE=dev
 
 # Run the application
-CMD ["java", "-jar", "-Dspring.profiles.active=${ACTIVE_PROFILE}", "-Dspring.datasource.url=${DB_URL}", "/app/book-network.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", \
+     "-Dspring.datasource.url=${SPRING_DATASOURCE_URL}?sslmode=${SPRING_DATASOURCE_SSLMODE}", \
+     "-Dspring.datasource.username=${SPRING_DATASOURCE_USERNAME}", \
+     "-Dspring.datasource.password=${SPRING_DATASOURCE_PASSWORD}", \
+     "/app/book-network.jar"]
