@@ -44,6 +44,15 @@ public class BookController {
         return ResponseEntity.ok(service.findAllBooks(page, size, connectedUser));
     }
 
+    @GetMapping("/all")
+    public  ResponseEntity<PageResponse<BookResponse>> findBooks(
+            @RequestParam(name = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(name = "size", defaultValue = "10", required = false) int size,
+            Authentication connectedUser
+    ){
+        return ResponseEntity.ok(service.findAllBook(connectedUser, page, size));
+    }
+
     @GetMapping("/owner")
     public ResponseEntity<PageResponse<BookResponse>> findAllBooksByOwner(
             @RequestParam(name = "page", defaultValue = "0", required = false) int page,
@@ -133,5 +142,12 @@ public class BookController {
         System.out.println("Keyword: " + keyword);
         List<String> suggestions = service.getListOfSuggestions(keyword);
         return ResponseEntity.ok(suggestions);
+    }
+
+    @PatchMapping("/addBook")
+    public ResponseEntity<?> addAllBook(
+            Authentication authentication
+    ){
+        return ResponseEntity.ok(service.addAllBooks(authentication));
     }
 }

@@ -16,8 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-import java.util.Objects;
+import java.security.SecureRandom;
+import java.util.*;
 
 import static com.mugiwara.book.book.BookSpecification.withOwnerId;
 
@@ -213,5 +213,97 @@ public class BookService {
         List<String> result = bookRepository.findByName(keyword);
         System.out.println("Suggestions: " + result);
         return !result.isEmpty() ? result : List.of("No suggestions found");
+    }
+
+    /*public List<Integer> addAllBooks(Authentication connectedUser) {
+//        User user = new User();
+        User user = ((User) connectedUser.getPrincipal());
+        Random random = new SecureRandom
+        List<Integer> list = null;
+
+
+        for (int i = 0; i < 15; i++) {
+            Book book = Book.builder()
+                    .archived(false)
+                    .sharable(true)
+                    .isbn("1")
+                    .title("A")
+                    .synopsis("B")
+                    .authorName("A")
+                    .build();
+            book.setOwner(user);
+            list = Collections.singletonList(bookRepository.save(book).getId());
+//            list = Collections.singletonList(bookRepository.save(book));
+        }
+        return list;
+    }*/
+
+    public List<Integer> addAllBooks(Authentication connectedUser) {
+        User user = (User) connectedUser.getPrincipal();
+        Random random = new SecureRandom();
+        List<Integer> list = new ArrayList<>();
+
+        String[] titles = {"Java Basics", "Spring Boot Guide", "Microservices Architecture", "Effective Java", "Cloud Computing",
+                "Clean Code", "Kubernetes Essentials", "Docker Mastery", "AI for Developers", "Design Patterns in Java",
+                "WebSocket Programming", "Modern Software Engineering", "The DevOps Handbook", "Full-Stack Development", "Cybersecurity Fundamentals"};
+
+        String[] authors = {"Joshua Bloch", "Martin Fowler", "Robert C. Martin", "Sam Newman", "Eric Evans",
+                "Kent Beck", "Chris Richardson", "Gene Kim", "Andrew Ng", "Sandi Metz",
+                "Adam Bien", "Neal Ford", "Mark Richards", "Vaughn Vernon", "Bruce Schneier"};
+
+        String[] synopsisList = {"A deep dive into Java programming", "Step-by-step Spring Boot guide", "Mastering microservices",
+                "Best practices in Java development", "Understanding cloud technologies",
+                "How to write clean and maintainable code", "A practical guide to Kubernetes",
+                "Master Docker containers", "AI concepts for developers", "Learn design patterns",
+                "WebSocket communication essentials", "Modern software development practices",
+                "The ultimate DevOps guide", "Become a full-stack expert", "Essential cybersecurity principles"};
+
+        for (int i = 0; i < 15; i++) {
+            Book book = Book.builder()
+                    .archived(false) // Always false
+                    .sharable(true) // Always true
+                    .isbn(UUID.randomUUID().toString().substring(0, 13)) // Generate random ISBN
+                    .title(titles[i]) // Use unique titles from array
+                    .synopsis(synopsisList[i]) // Use unique synopsis from array
+                    .authorName(authors[i]) // Use unique author from array
+                    .build();
+            book.setOwner(user);
+            list.add(bookRepository.save(book).getId()); // Store each generated book ID
+        }
+
+        return list;
+    }
+
+    public PageResponse<BookResponse> findAllBook(Authentication connectedUser ,int page, int size) {
+       /* Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Book> books = bookRepository.find(pageable);
+        List<BookResponse> bookResponses = books.stream()
+                .map(bookMapper::toBookResponsePrivate)
+                .toList();
+        return new PageResponse<>(
+                bookResponses,
+                books.getNumber(),
+                books.getSize(),
+                books.getTotalElements(),
+                books.getTotalPages(),
+                books.isFirst(),
+                books.isLast()
+        );*/
+
+        User user = ((User) connectedUser.getPrincipal());
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Book> books = bookRepository.findAllDisplayableBook(pageable, user.getId());
+        List<BookResponse> bookResponses = books.stream()
+                .map(bookMapper::toBookResponse)
+                .toList();
+        return new PageResponse<>(
+                bookResponses,
+                books.getNumber(),
+                books.getSize(),
+                books.getTotalElements(),
+                books.getTotalPages(),
+                books.isFirst(),
+                books.isLast()
+        );
     }
 }

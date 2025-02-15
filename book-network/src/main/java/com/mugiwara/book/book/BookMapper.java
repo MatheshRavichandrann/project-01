@@ -34,6 +34,22 @@ public class BookMapper {
 
     }
 
+    public BookResponse toBookResponsePrivate(Book book) {
+        return BookResponse.builder()
+                .id(book.getId())
+                .title(book.getTitle())
+                .authorName(book.getAuthorName())
+                .isbn(book.getIsbn())
+                .synopsis(book.getSynopsis())
+                .rate(book.getRate())
+                .archived(book.isArchived())
+                .sharable(book.isSharable())
+                .owner("Tony Stark")
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
+                .build();
+
+    }
+
     public BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory history) {
         return BorrowedBookResponse.builder()
                 .id(history.getBook().getId())

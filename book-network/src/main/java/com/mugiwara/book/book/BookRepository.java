@@ -30,5 +30,11 @@ public interface BookRepository extends JpaRepository<Book, Integer>, JpaSpecifi
     """)
     List<String> findByName(@Param("keyword") String keyword);
 
-
+    @Query("""
+            SELECT book
+            FROM Book book
+            WHERE book.archived = false
+            AND book.sharable = true
+            """)
+    Page<Book> find(Pageable pageable);
 }
