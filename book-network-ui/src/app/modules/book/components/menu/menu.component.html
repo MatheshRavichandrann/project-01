@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
   <div class="container-fluid">
-    <a href="javascript:void(0)" class="navbar-brand">E-Book</a>
+    <a href="javascript:void(0)" class="navbar-brand fw-bold">E-Book</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -12,6 +12,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,12 +42,28 @@
           </a>
         </li>
       </ul>
-      <form class="d-flex gap-2 align-items-center" role="search">
-        <input class="form-control" type="text" placeholder="Find a book" aria-label="search" />
-        <button class="btn btn-outline-success" type="submit">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
+
+      <!-- Search Input -->
+      <div class="search-container position-relative">
+        <input
+          class="form-control me-2"
+          type="text"
+          placeholder="Find a book"
+          aria-label="search"
+          (input)="onSearchInput($event)"
+          (keydown)="handleKeyDown($event)"
+          [(ngModel)]="searchQuery"
+          (focus)="showDropdown = true"
+          (blur)="hideDropdown()"
+        />
+        <!-- Dropdown for Suggestions -->
+        <ul class="dropdown-menu show position-absolute w-100" *ngIf="showDropdown && suggestions.length > 0">
+          <li *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)" class="dropdown-item">
+            {{ suggestion }}
+          </li>
+        </ul>
+      </div>
+
       <span class="welcome-text ms-3">Welcome</span>
       <span class="text-capitalize fw-bold ms-1">{{ username }}</span>
       <button class="btn btn-link ms-2" type="button" (click)="logout()">

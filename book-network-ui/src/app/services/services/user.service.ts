@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8088/api/v1/info';  // Adjust as needed
+  private apiUrl = 'https://project-01-gm0t.onrender.com/api/v1/info';  // Adjust as needed
+  // private apiUrl = 'http://localhost:8088/api/v1/info';
 
   constructor(private http: HttpClient) {}
 
